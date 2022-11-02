@@ -1,0 +1,26 @@
+{%extends 'navbar.html' %} {%block body%}
+<style>
+    .profile-container{
+        display: grid;
+        grid-template-columns:2fr 2fr;
+    }
+
+</style>
+
+
+<div class="profile-container">
+    <div>
+        <h4>Rooms Interactions</h4>
+        {% for topic in topics %}
+        <p>{{topic}}</p>
+        {% endfor %}
+        
+    </div>
+    <div>
+        <h1>@{{user.username}}</h1>
+    </div>
+    
+  
+</div>
+
+{%endblock body%}

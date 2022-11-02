@@ -1,0 +1,33 @@
+{% extends 'navbar.html' %}
+
+{% block body %}
+
+{% if page == 'login'%}
+
+<div>
+    <form method="POST" action ="">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Enter User name..">
+        <label for="password">Password</label>
+        <input type="text" name="password" placeholder="Enter Password..">
+
+        <input type="submit" value="Submit">
+    </form> 
+    <p>Haven't sign up yet?</p>
+    <a href="{% url 'register' %}">Register</a>
+    
+</div>
+{% else %}
+<div>
+    <form method="POST" action ="">
+        {% csrf_token %}
+        
+        {{form.as_p}}
+        <input type="submit" value="Register">
+    </form> 
+    <p>already sign up</p>
+    <a href="{% url 'login'%}">Sign up</a>
+</div>
+{% endif %}
+{% endblock body %}
