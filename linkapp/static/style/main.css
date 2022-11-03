@@ -1,0 +1,28 @@
+body{
+    max-width: 425px;
+    margin: auto;
+    display: block;
+    background-color: yellow;
+}
+
+     
+.navbar{
+    
+    top: 0px;
+    background-color: chocolate;
+    width: 425px;
+    margin-bottom: 40px;
+    
+}
+.mobile{
+    position: relative;
+    display: block;
+    width: 425px;
+    margin: auto;
+    border: 1px solid green;
+    padding: 3px;
+    height: 90vh;
+    border-radius: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
