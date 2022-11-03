@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block body %}
+<style>
+    .space{
+        margin-bottom: 20px;
+    }
+</style>
+<a href="{% url 'createlink' %}"><button>Save link</button></a>
+
+    
+    {% comment %} <form action="" method="POST">{% csrf_token %}
+<input type="text" name="title" placeholder="Title">
+<input type="text" name="link" placeholder="Link">
+<input type="text" name="desc" placeholder="description">
+<input type="submit" value="Save">
+
+    </form> {% endcomment %}
+    <h5>search result</h5>
+    {% for list in q_list %}
+    {% if request.user == list.host %}
+
+    {{list}}<br>
+    {{list.desc}}
+    <a href="{{list.link}}"><button>Visit</button></a>
+    <a href="{% url 'edit' list.id %}"><button>Edit</button></a>
+    <a href="{% url 'delete' list.id %}"><button>Delete</button></a>
+    <hr class="space">
+
+    {% endif %}
+    {% endfor %}
+    <hr>
+
+
+
+
+
+
+    <h4>Your links</h4>
+    <hr>
+    {% for link in links  %}
+
+    {% if request.user == link.host %}
+
+    {{link}}<br>
+    {{link.desc}} <br>
+    <a href="{{link.link}}"><button>Visit</button></a>
+    <a href="{% url 'edit' link.id %}"><button>Edit</button></a>
+    <a href="{% url 'delete' link.id %}"><button>Delete</button></a>
+    <hr>
+    {% endif %}
+    {% endfor %}
+
+
+    {% endblock body %}
+
